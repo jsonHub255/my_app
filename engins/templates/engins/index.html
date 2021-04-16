@@ -1,0 +1,12 @@
+{% extends "engins/bases/layout.html" %}
+
+{% block body %}
+<h1>Engins LIST</h1>
+{% for eng in objs %}
+    <p></p>{{eng.id}}: <a href="{{ eng.get_absolute_url }}">{{ eng.eng_name }} /{{eng.eng_code}}</a>
+    <button><a href="{{ eng.get_absolue_url_update }}">Update</a></button>
+    <button><a href="{{ eng.get_absolute_url_del }}">Delete</a></button>
+    </p>
+{% endfor %}
+
+{% endblock %}
