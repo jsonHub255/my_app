@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .forms import EnginForm
+from .forms import EnginForm, DriverForm
 from django.http import Http404
-from .models import Engin
+from .models import Engin, Driver
 
 # Create your views here.
 def engin_list_view(request):
@@ -22,7 +22,7 @@ def engin_single_view(request, id):
     }
     return render(request, "engins/single_eng.html", context)
     
-# CREATE VIEW
+# CREATE ENGIN VIEW
 def engin_create_view(request):
     form  = EnginForm(request.POST or None)
     if form.is_valid():
@@ -56,8 +56,28 @@ def engin_del_view(request, id):
         'obj': obj
     }
     return render(request, "engins/eng_del.html")
+
+# ########Driver VIEWS ###########
+##################################
+
+# Driver LIST VIEW
+def drivers_list_view(request):
+    obj = Driver.objects.all
+
+    context = {
+        'drivers': obj
+    }
+    return render(request, "engins/driv_lst.html", context)
     
+# VIEW CRATE A DRIVER
+def create_driver_view(request):
+    form = DriverForm(request.POST or None)
+    if form.is_valid():
+        form.save()
     
+    context= {
+        'form': form
+    }
+    return render(request, "engins/create_driver.html", context)
     
-    
-    
+

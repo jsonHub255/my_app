@@ -22,3 +22,11 @@ class Engin(models.Model):
     
     def __str__(self):
         return self.eng_name
+
+
+class Driver(models.Model):
+    driv_eng = models.ForeignKey(Engin, on_delete=models.CASCADE)
+    driv_full_name = models.CharField(max_length=32)
+
+    def __str__(self):
+        return self.driv_full_name

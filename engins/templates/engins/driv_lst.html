@@ -1,0 +1,10 @@
+{% extends "engins/bases/layout.html" %}
+
+{% block body %}
+<h2>Drivers Infos</h2>
+<ul>
+    {% for driv in drivers %}
+    <li>{{ driv.driv_full_name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

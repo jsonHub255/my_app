@@ -1,5 +1,5 @@
 from django import forms
-from .models import Engin
+from .models import Engin, Driver
 
 class EnginForm(forms.ModelForm):
     eng_name = forms.CharField(required=True, widget=forms.TextInput(
@@ -21,4 +21,20 @@ class EnginForm(forms.ModelForm):
         fields = [
             'eng_name',
             'eng_code'
+        ]
+
+
+class DriverForm(forms.ModelForm):
+    driv_full_name = forms.CharField(required=True, widget=forms.TextInput(
+        attrs={
+            'placeholder': 'Full Name',
+            'id': 'driv_name'
+        }
+    ))
+
+    class Meta:
+        model = Driver
+        fields = [
+            'driv_eng',
+            'driv_full_name'
         ]
