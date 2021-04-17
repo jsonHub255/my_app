@@ -25,7 +25,9 @@ class Engin(models.Model):
 
 
 class Driver(models.Model):
-    driv_eng = models.ForeignKey(Engin, on_delete=models.CASCADE)
+    driv_eng = models.ForeignKey(Engin, on_delete=models.CASCADE, related_name="eng_driv")
+    driv_eng_code = models.ForeignKey(
+        Engin, null=False, on_delete=models.CASCADE, related_name="eng_driv_code")
     driv_full_name = models.CharField(max_length=32)
 
     def __str__(self):
