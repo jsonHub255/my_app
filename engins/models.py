@@ -23,7 +23,7 @@ class Engin(models.Model):
     def __str__(self):
         return self.eng_name
 
-
+# Try to add a second filed for code from Engin code model
 class Driver(models.Model):
     driv_eng = models.ForeignKey(Engin, on_delete=models.CASCADE)
     driv_full_name = models.CharField(max_length=32)
